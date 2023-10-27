@@ -51,6 +51,7 @@ public class UnweightedGraph<V> implements Graph<V> {
 	   List<Integer> searchOrder = new ArrayList<>();
 	   Stack<Integer> stack = new Stack<>();
 	
+	/*
 	 	 push v to the stack
 		 add v to search order
 		 mark v visited
@@ -76,6 +77,7 @@ public class UnweightedGraph<V> implements Graph<V> {
 	    }
 		return new SearchTree(v, parent, searchOrder);
 	}
+	*/
 	
 	public SearchTree dfsNonRecurs(int v) {
 		// Will store what vertex leads to it
