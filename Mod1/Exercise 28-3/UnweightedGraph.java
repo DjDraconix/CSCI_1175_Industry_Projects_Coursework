@@ -43,19 +43,7 @@ public class UnweightedGraph<V> implements Graph<V> {
 	}
 	
 	// Algorithm for Exercise 28-3
-	public SearchTree dfsNonRecurs(int v) {
-	    int[] parent = new int[vertices.size()];
-	  for (int i = 0; i < parent.length; i++)
-	       parent[i] = -1; // Initialize parent[i] to -1
-	   boolean[] isVisited = new boolean[vertices.size()];
-	   List<Integer> searchOrder = new ArrayList<>();
-	   Stack<Integer> stack = new Stack<>();
-	
 	/*
-	 	 push v to the stack
-		 add v to search order
-		 mark v visited
-	
 	   while (the stack is not empty) {
 	     peek a vertex from the stack, call x
 	     if (neighbors list for x equals size 0) {
@@ -75,9 +63,10 @@ public class UnweightedGraph<V> implements Graph<V> {
 				}
 	        }
 	    }
+		
 		return new SearchTree(v, parent, searchOrder);
-	}
-	*/
+	} */
+	
 	
 	public SearchTree dfsNonRecurs(int v) {
 		// Will store what vertex leads to it
@@ -85,13 +74,19 @@ public class UnweightedGraph<V> implements Graph<V> {
 		for (int i = 0; i < parent.length; i++)
 			parent[i] = -1; // Initialize parent[i] to -1
 		// Mark visited vertices
-		boolean[] isVisited = new boolean[vertices.size()];
+		boolean[] isVisited = new boolean[vertices.size()]; 
 		// Finish dfs order
 		List<Integer> searchOrder = new ArrayList<>();
 		// Used to keep track of vertices left to track
 		Stack<Integer> stack = new Stack<>();
-		
 		// Insert your code here
+		stack.push(v);
+		searchOrder.add(v);
+		isVisited[0] = true;
+		
+		while (!stack.isEmpty()) {
+			int x = stack.peek();
+		}
 		
 		return new SearchTree(v, parent, searchOrder);
 	}
