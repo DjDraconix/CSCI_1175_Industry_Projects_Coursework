@@ -45,9 +45,6 @@ public class UnweightedGraph<V> implements Graph<V> {
 	// Algorithm for Exercise 28-3
 	/*
 	   while (the stack is not empty) {
-	     peek a vertex from the stack, call x
-	     if (neighbors list for x equals size 0) {
-		pop a vertex from the stack
 	    }
 	     else {
 	         for (int i = all the vertices in x's neighbor list) {
@@ -86,6 +83,11 @@ public class UnweightedGraph<V> implements Graph<V> {
 		
 		while (!stack.isEmpty()) {
 			int x = stack.peek();
+			if ("neighbors list for x equals size 0") {
+			//pop a vertex from the stack
+			} else {
+				
+			}
 		}
 		
 		return new SearchTree(v, parent, searchOrder);
