@@ -83,7 +83,7 @@ public class UnweightedGraph<V> implements Graph<V> {
 		
 		while (!stack.isEmpty()) {
 			int x = stack.peek();
-			if ("neighbors list for x equals size 0") {
+			if (neighbors.size() == 0) {
 			//pop a vertex from the stack
 			} else {
 				
