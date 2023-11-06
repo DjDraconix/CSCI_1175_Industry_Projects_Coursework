@@ -42,29 +42,6 @@ public class UnweightedGraph<V> implements Graph<V> {
 		createAdjacencyLists(edges, numberOfVertices);
 	}
 	
-	// Algorithm for Exercise 28-3
-	/*
-	   while (the stack is not empty) {
-	    }
-	     else {
-	         for (int i = all the vertices in x's neighbor list) {
-	            grab Egde at index i, call e
-				remove ending vertex from x's neighbor list
-	             
-	             if (ending vertex of e is not visited) {
-					mark parent of ending vertex as x
-					push ending vertex onto stack
-					mark ending vertex as visited
-					add ending vertex to search order
-					break;
-				}
-	        }
-	    }
-		
-		return new SearchTree(v, parent, searchOrder);
-	} */
-	
-	
 	public SearchTree dfsNonRecurs(int v) {
 		// Will store what vertex leads to it
 		int[] parent = new int[vertices.size()];
@@ -76,7 +53,7 @@ public class UnweightedGraph<V> implements Graph<V> {
 		List<Integer> searchOrder = new ArrayList<>();
 		// Used to keep track of vertices left to track
 		Stack<Integer> stack = new Stack<>();
-		// Insert your code here
+		
 		stack.push(v);
 		searchOrder.add(v);
 		isVisited[0] = true;
@@ -86,10 +63,18 @@ public class UnweightedGraph<V> implements Graph<V> {
 			if (neighbors.size() == 0) {
 			//pop a vertex from the stack
 			} else {
-				
+				for (/*int i = all the vertices in x's neighbor list*/) {
+					//grab Egde at index i, call e
+					//remove ending vertex from x's neighbor list
+					if (/*ending vertex of e is not visited*/) {
+						//mark parent of ending vertex as x
+						//push ending vertex onto stack
+						//mark ending vertex as visited
+						//add ending vertex to search order
+						break;
+				}
 			}
 		}
-		
 		return new SearchTree(v, parent, searchOrder);
 	}
 
