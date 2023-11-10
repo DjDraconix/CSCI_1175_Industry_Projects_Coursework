@@ -44,7 +44,8 @@ public class UnweightedGraph<V> implements Graph<V> {
 	
 	// Returns the best path between two nodes
 	public List<Integer> getPath(int u, int v) {
-		bfs(u);
+		SearchTree pathing = bfs(u);
+		
 		return null;
 	}
 
