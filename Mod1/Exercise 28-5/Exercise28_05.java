@@ -1,6 +1,6 @@
 import java.util.*;
 
-import java.io.*;
+//import java.io.*;
 
 public class Exercise28_05 {
 	public static void main(String[] args) throws Exception {
