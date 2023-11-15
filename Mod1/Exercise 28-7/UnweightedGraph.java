@@ -44,9 +44,12 @@ public class UnweightedGraph<V> implements Graph<V> {
   }
   
   private List<Integer> gatACycle() {
-    List<Integer> cycle = new ArrayList<>();
-    
-    
+    List<Integer> vertices = new ArrayList<>();
+    boolean[] visited = new boolean[vertices.size()];
+    int[] parrent = new int[vertices.size()];
+    while () {
+      
+    }
     return null;
   }
 
