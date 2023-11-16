@@ -53,8 +53,16 @@ public class UnweightedGraph<V> implements Graph<V> {
       Stack<Integer> potential = new Stack<>();
       potential.push(v);
       visited[v] = true;
-      
-      
+      vertices.remove(v);
+      while (!potential.isEmpty()) {
+        int x = potential.peek();
+        if (true/*x has no neighbors*/) {
+          potential.pop();
+        }
+        else {
+          
+        }
+      }
     }
     return null;
   }
