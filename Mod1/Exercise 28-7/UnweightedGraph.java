@@ -47,7 +47,13 @@ public class UnweightedGraph<V> implements Graph<V> {
     List<Integer> vertices = new ArrayList<>();
     boolean[] visited = new boolean[vertices.size()];
     int[] parrent = new int[vertices.size()];
-    while () {
+    int v = -1;
+    while (visited.contains(false)) {
+      v += 1;
+      Stack<Integer> potential = new Stack<>();
+      potential.push(v);
+      visited[v] = true;
+      
       
     }
     return null;
