@@ -60,12 +60,10 @@ public class UnweightedGraph<V> implements Graph<V> {
 		
 		while (!stack.isEmpty()) {
 			int x = stack.peek();
-			if (neighbors.size() == 0) {
+			if (neighbors.get(x).size() == 0) {
 				stack.pop();
 			} else {
-				for (int i = neighbors.get(x).size(); i >= 0; i--) {
-					if (i == neighbors.get(x).size()) 
-					i--;
+				for (int i = neighbors.get(x).size(); i > 0; i--) {
 					Edge e = neighbors.get(x).get(i);
 					neighbors.get(x).remove(e.v);
 					if (isVisited[e.v] == false) {
