@@ -56,22 +56,30 @@ public class UnweightedGraph<V> implements Graph<V> {
       vertices.remove(v);
       while (!potential.isEmpty()) {
         int x = potential.peek();
-        if (x.getNeighbors.isEmpty()) {
+        if (getNeighbors(x).isEmpty()) {
           potential.pop();
         }
         else {
-          for (int i = 0; i < x.getNeighbors.size(); i++) {
-            Edge e = new Edge(x, x.getneighbors(i));
+          for (int i = 0; i < getNeighbors(x).size(); i++) {
+            Edge e = new Edge(x, getNeighbors(x).get(i));
             if (visited[e.v] == false) {
               parrent[e.v] = x;
               potential.push(e.v);
               visited[e.v] = true;
               vertices.remove(e.v);
-              
-            } else if () {
-              
+              getNeighbors(x).remove(getNeighbors(x).get(i));
+              i--;
+            } else if (getNeighbors(x).get(i) != e.v) {
+              ArrayList<Integer> templist = new ArrayList<>();
+              templist.add(e.v);
+              while(x != e.v && x != -1) {
+                templist.add(x);
+                x = getNeighbors(x).get(i);
+              }
+              return templist;
             } else {
-              
+              getNeighbors(x).remove(getNeighbors(i));
+              i--;
             }
           }
         }
