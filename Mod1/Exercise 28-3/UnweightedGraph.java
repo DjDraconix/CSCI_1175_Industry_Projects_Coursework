@@ -63,9 +63,9 @@ public class UnweightedGraph<V> implements Graph<V> {
 			if (neighbors.get(x).size() == 0) {
 				stack.pop();
 			} else {
-				for (int i = neighbors.get(x).size(); i > 0; i--) {
+				for (int i = neighbors.get(x).size()- 1; i >= 0; i--) {
 					Edge e = neighbors.get(x).get(i);
-					neighbors.get(x).remove(e.v);
+					neighbors.get(x).remove(i);
 					if (isVisited[e.v] == false) {
 						//mark parent of ending vertex as x
 						parent[e.v] = x;
