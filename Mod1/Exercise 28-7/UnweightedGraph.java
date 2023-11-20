@@ -43,51 +43,49 @@ public class UnweightedGraph<V> implements Graph<V> {
     createAdjacencyLists(edges, numberOfVertices);
   }
   
-  private boolean hasFalse(boolean[] input) {
-    for (int i = 0; i < input.length; i++) {
-      if (input[i] == false)
-        return true;
-    }
-    return false;
-  }
-  
   public List<Integer> getACycle() {
-    List<Integer> vertices = new ArrayList<>();
+    List<Integer> newVertices = new ArrayList<>();
+    for (int i = 0 ; i < vertices.size(); i++) {
+      newVertices.add(i);
+    }
     boolean[] visited = new boolean[vertices.size()];
     int[] parrent = new int[vertices.size()];
-    int v = -1;
-    while (hasFalse(visited)) {
-      v++;
+    for (int i = 0; i < vertices.size(); i++) {
+      parrent[i] = -1;
+    }
+    while (newVertices.size() > 0) {
+      int v = newVertices.get(0);
       Stack<Integer> potential = new Stack<>();
       potential.push(v);
       visited[v] = true;
-      vertices.remove(v);
+      newVertices.remove(new Integer(v));
       while (!potential.isEmpty()) {
         int x = potential.peek();
-        if (getNeighbors(x).isEmpty()) {
+        if (neighbors.get(x).size() == 0) {
           potential.pop();
         }
         else {
-          for (int i = 0; i < getNeighbors(x).size(); i++) {
-            Edge e = new Edge(x, getNeighbors(x).get(i));
+          for (int i = 0; i < neighbors.get(x).size(); i++) {
+            Edge e = neighbors.get(x).get(i);
+            
             if (visited[e.v] == false) {
               parrent[e.v] = x;
               potential.push(e.v);
               visited[e.v] = true;
-              vertices.remove(e.v);
-              getNeighbors(x).remove(getNeighbors(x).get(i));
-              i--;
-            } else if (getNeighbors(x).get(i) != e.v) {
+              newVertices.remove(new Integer(e.v));
+              neighbors.get(x).remove(i);
+              
+            } else if (e.v != parrent[x]) {
               ArrayList<Integer> templist = new ArrayList<>();
               templist.add(e.v);
               while(x != e.v && x != -1) {
                 templist.add(x);
-                x = getNeighbors(x).get(i);
+                x = parrent[x];
               }
               return templist;
+              
             } else {
-              getNeighbors(x).remove(getNeighbors(i));
-              i--;
+              neighbors.get(x).remove(i);
             }
           }
         }
