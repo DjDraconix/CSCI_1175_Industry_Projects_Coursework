@@ -61,12 +61,12 @@ public class UnweightedGraph<V> implements Graph<V> {
 		while (!stack.isEmpty()) {
 			int x = stack.peek();
 			if (neighbors.size() == 0) {
-			//pop a vertex from the stack
+				stack.pop();
 			} else {
-				for (/*int i = all the vertices in x's neighbor list*/) {
-					//grab Egde at index i, call e
-					//remove ending vertex from x's neighbor list
-					if (/*ending vertex of e is not visited*/) {
+				for (int i = neighbors.get(x).size(); i >= 0; i--) {
+					Edge e = neighbors.get(x).get(i);
+					neighbors.get(x).remove(i);
+					if (isVisited[i] == false) {
 						//mark parent of ending vertex as x
 						//push ending vertex onto stack
 						//mark ending vertex as visited
@@ -79,7 +79,7 @@ public class UnweightedGraph<V> implements Graph<V> {
 	}
 
 	/** Create adjacency lists for each vertex */
-	private void createAdjacencyLists(
+	Private void createAdjacencyLists(
 			int[][] edges, int numberOfVertices) {
 		for (int i = 0; i < edges.length; i++) {
 			addEdge(edges[i][0], edges[i][1]);
