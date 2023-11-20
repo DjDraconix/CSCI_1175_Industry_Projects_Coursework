@@ -43,13 +43,21 @@ public class UnweightedGraph<V> implements Graph<V> {
     createAdjacencyLists(edges, numberOfVertices);
   }
   
+  private boolean hasFalse(boolean[] input) {
+    for (int i = 0; i < input.length; i++) {
+      if (input[i] == false)
+        return true;
+    }
+    return false;
+  }
+  
   public List<Integer> getACycle() {
     List<Integer> vertices = new ArrayList<>();
     boolean[] visited = new boolean[vertices.size()];
     int[] parrent = new int[vertices.size()];
     int v = -1;
-    while (visited[v] != true) {
-      v += 1;
+    while (hasFalse(visited)) {
+      v++;
       Stack<Integer> potential = new Stack<>();
       potential.push(v);
       visited[v] = true;
