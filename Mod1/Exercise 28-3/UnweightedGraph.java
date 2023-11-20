@@ -64,22 +64,29 @@ public class UnweightedGraph<V> implements Graph<V> {
 				stack.pop();
 			} else {
 				for (int i = neighbors.get(x).size(); i >= 0; i--) {
+					if (i == neighbors.get(x).size()) 
+					i--;
 					Edge e = neighbors.get(x).get(i);
-					neighbors.get(x).remove(i);
-					if (isVisited[i] == false) {
+					neighbors.get(x).remove(e.v);
+					if (isVisited[e.v] == false) {
 						//mark parent of ending vertex as x
+						parent[e.v] = x;
 						//push ending vertex onto stack
+						stack.push(e.v);
 						//mark ending vertex as visited
+						isVisited[e.v] = true;
 						//add ending vertex to search order
+						searchOrder.add(e.v);
 						break;
-				}
-			}
-		}
-		return new SearchTree(v, parent, searchOrder);
+				    }
+			    }
+		    }
+	    }
+	return new SearchTree(v, parent, searchOrder);
 	}
-
+	
 	/** Create adjacency lists for each vertex */
-	Private void createAdjacencyLists(
+	private void createAdjacencyLists(
 			int[][] edges, int numberOfVertices) {
 		for (int i = 0; i < edges.length; i++) {
 			addEdge(edges[i][0], edges[i][1]);
