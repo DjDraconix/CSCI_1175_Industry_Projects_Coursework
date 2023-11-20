@@ -43,7 +43,7 @@ public class UnweightedGraph<V> implements Graph<V> {
     createAdjacencyLists(edges, numberOfVertices);
   }
   
-  private List<Integer> gatACycle() {
+  private List<Integer> getACycle() {
     List<Integer> vertices = new ArrayList<>();
     boolean[] visited = new boolean[vertices.size()];
     int[] parrent = new int[vertices.size()];
