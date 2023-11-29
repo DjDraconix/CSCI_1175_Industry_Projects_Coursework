@@ -17,10 +17,18 @@ public class FlagRisingAnimation extends Application {
 		ImageView imageView = new ImageView("image/us.gif");
 		pane.getChildren().add(imageView);
 
-		// Create a path transition
-		PathTransition pt = new PathTransition(Duration.millis(10000),
-							new Line(100, 200, 100, 0), imageView); pt.setCycleCount(5);
-		pt.play(); // Start animation
+		new Thread(() -> {
+			try {
+				// Create a path transition
+				PathTransition pt = new PathTransition(Duration.millis(10000),
+									new Line(100, 200, 100, 0), imageView); pt.setCycleCount(5);
+				pt.play(); // Start animation
+			}
+			catch (Exception ex) {
+			}
+		}).start();
+
+		
 		
 		// Create a scene and place it in the stage
 		Scene scene = new Scene(pane, 250, 200); 
