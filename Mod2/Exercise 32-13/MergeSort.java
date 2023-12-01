@@ -21,10 +21,6 @@ public class MergeSort {
       System.arraycopy(temp, 0, list, 0, temp.length);
     }
   }
-  
-  public static <E extends Comparable<E>> void parallelMergeSort(E[] list) {
-
-  }
 
   public static<E extends Comparable<E>> E[]
     merge(E[] list1, E[] list2, E[] temp) {

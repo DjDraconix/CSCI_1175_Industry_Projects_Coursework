@@ -4,8 +4,8 @@ import java.util.concurrent.ForkJoinPool;
 public class ParallelMergeSort {
 	public static void main(String[] args) {
 		final int SIZE = 7000000;
-		int[] list1 = new int[SIZE];
-		int[] list2 = new int[SIZE];
+		Integer[] list1 = new Integer[SIZE];
+		Integer[] list2 = new Integer[SIZE];
 
 		for (int i = 0; i < list1.length; i++)
 			list1[i] = list2[i] = (int)(Math.random() * 10000000);
@@ -24,7 +24,7 @@ public class ParallelMergeSort {
 			(endTime - startTime) + " milliseconds");
 	}
 
-	public static void parallelMergeSort(int[] list) {
+	public static <E extends Comparable<E>> void parallelMergeSort(E[] list) {
 		RecursiveAction mainTask = new SortTask(list);
 		ForkJoinPool pool = new ForkJoinPool();
 		pool.invoke(mainTask);
