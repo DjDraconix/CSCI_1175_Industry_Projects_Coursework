@@ -30,11 +30,11 @@ public class ParallelMergeSort {
 		pool.invoke(mainTask);
 	}
 
-	private static class SortTask extends RecursiveAction {
+	private static class SortTask <E extends Comparable<E>> extends RecursiveAction {
 		private final int THRESHOLD = 500;
-		private int[] list;
+		private E[] list;
 
-		SortTask(int[] list) {
+		SortTask(E[] list) {
 			this.list = list;
 		}
 
@@ -44,12 +44,12 @@ public class ParallelMergeSort {
 				java.util.Arrays.sort(list);
 			else {
 				// Obtain the first half
-				int[] firstHalf = new int[list.length / 2];
+				E[] firstHalf = new E[list.length / 2];
 				System.arraycopy(list, 0, firstHalf, 0, list.length / 2);
 
 				// Obtain the second half
 				int secondHalfLength = list.length - list.length / 2;
-				int[] secondHalf = new int[secondHalfLength];
+				E[] secondHalf = new E[secondHalfLength];
 				System.arraycopy(list, list.length / 2, 
 					secondHalf, 0, secondHalfLength);
 
