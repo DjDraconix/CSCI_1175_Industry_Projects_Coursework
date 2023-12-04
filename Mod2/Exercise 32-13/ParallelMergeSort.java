@@ -44,12 +44,12 @@ public class ParallelMergeSort {
 				java.util.Arrays.sort(list);
 			else {
 				// Obtain the first half
-				E[] firstHalf = new E[list.length / 2];
+				E[] firstHalf = (E[])new Comparable[list.length / 2];
 				System.arraycopy(list, 0, firstHalf, 0, list.length / 2);
 
 				// Obtain the second half
 				int secondHalfLength = list.length - list.length / 2;
-				E[] secondHalf = new E[secondHalfLength];
+				E[] secondHalf = (E[])new Comparable[secondHalfLength];
 				System.arraycopy(list, list.length / 2, 
 					secondHalf, 0, secondHalfLength);
 
