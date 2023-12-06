@@ -1,4 +1,12 @@
 // Exercise31_01Server.java: The server can communicate with
+package com.journaldev.socket;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.lang.ClassNotFoundException;
+import java.net.ServerSocket;
+import java.net.Socket;
 // multiple clients concurrently using the multiple threads
 import java.util.*;
 import javafx.application.Application;
@@ -9,6 +17,12 @@ import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 public class Exercise33_01Server extends Application {
+  //https://www.digitalocean.com/community/tutorials/java-socket-programming-server-client
+  //static ServerSocket variable
+  private static ServerSocket server;
+  //socket server port on which it will listen
+  private static int port = 9876;
+  
   // Text area for displaying contents
   private TextArea ta = new TextArea();
 
