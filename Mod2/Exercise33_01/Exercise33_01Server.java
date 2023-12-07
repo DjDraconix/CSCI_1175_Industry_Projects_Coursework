@@ -23,6 +23,9 @@ public class Exercise33_01Server extends Application {
   //socket server port on which it will listen
   private static int port = 9876;
   
+  
+  
+  
   // Text area for displaying contents
   private TextArea ta = new TextArea();
 
