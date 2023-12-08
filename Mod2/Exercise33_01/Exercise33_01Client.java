@@ -1,5 +1,13 @@
 // Exercise31_01Client.java: The client sends the input to the server and receives
 // result back from the server
+package com.journaldev.socket;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.lang.ClassNotFoundException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -23,7 +31,13 @@ public class Exercise33_01Client extends Application {
   private TextArea ta = new TextArea();
   
   @Override // Override the start method in the Application class
-  public void start(Stage primaryStage) {
+  public void start(Stage primaryStage) throws IOException {
+    Socket socket = new Socket("localhost", 9876);
+    DataInputStream in = new DataInputStream(socket.getInputStream());
+    DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+    
+    
+    
     ta.setWrapText(true);
    
     GridPane gridPane = new GridPane();
