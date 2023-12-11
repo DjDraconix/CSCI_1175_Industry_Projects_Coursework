@@ -24,12 +24,13 @@ public class Exercise33_01Server extends Application {
 
   @Override // Override the start method in the Application class
   public void start(Stage primaryStage) throws IOException {
-    //https://www.digitalocean.com/community/tutorials/java-socket-programming-server-client
-    //static ServerSocket variable
     ServerSocket server = new ServerSocket(9876);
     Socket socket = server.accept();
     DataInputStream in = new DataInputStream(socket.getInputStream());
     DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+    double rate;
+    int years;
+    double amount;
     
     
     ta.setWrapText(true);

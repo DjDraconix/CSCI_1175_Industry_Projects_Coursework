@@ -66,6 +66,10 @@ public class Exercise33_01Client extends Application {
     primaryStage.setTitle("Exercise31_01Client"); // Set the stage title
     primaryStage.setScene(scene); // Place the scene in the stage
     primaryStage.show(); // Display the stage
+    
+    //button to make the info go up to the server
+    btSubmit.setOnAction(e -> 
+    );
   }
   
   /**
