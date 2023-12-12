@@ -36,8 +36,6 @@ public class Exercise33_01Client extends Application {
     DataInputStream in = new DataInputStream(socket.getInputStream());
     DataOutputStream out = new DataOutputStream(socket.getOutputStream());
     
-    
-    
     ta.setWrapText(true);
    
     GridPane gridPane = new GridPane();
@@ -68,8 +66,9 @@ public class Exercise33_01Client extends Application {
     primaryStage.show(); // Display the stage
     
     //button to make the info go up to the server
-    btSubmit.setOnAction(e -> 
-    );
+    btSubmit.setOnAction(e -> {
+      
+    });
   }
   
   /**
