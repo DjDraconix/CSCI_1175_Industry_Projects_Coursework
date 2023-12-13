@@ -1,5 +1,5 @@
 // Implements Seriablizable to support object IO  
-public class Loan implements java.io.Serializable {
+public class Loan implements java.io.Serializable{
   private double annualInterestRate;
   private int numberOfYears;
   private double loanAmount;

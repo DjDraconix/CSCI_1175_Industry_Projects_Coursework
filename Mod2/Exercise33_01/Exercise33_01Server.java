@@ -1,6 +1,5 @@
 // Exercise31_01Server.java: The server can communicate with
 // multiple clients concurrently using the multiple threads
-package com.journaldev.socket;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -21,16 +20,19 @@ public class Exercise33_01Server extends Application {
   
   // Text area for displaying contents
   private TextArea ta = new TextArea();
-
+  Loan data = new Loan();
+  
   @Override // Override the start method in the Application class
   public void start(Stage primaryStage) throws IOException {
+    
     ServerSocket server = new ServerSocket(9876);
     Socket socket = server.accept();
     DataInputStream in = new DataInputStream(socket.getInputStream());
     DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-    double rate;
-    int years;
-    double amount;
+    
+    double rate = in.readDouble();
+    int years = in.readInt();
+    double amount = in.readDouble();
     
     
     ta.setWrapText(true);

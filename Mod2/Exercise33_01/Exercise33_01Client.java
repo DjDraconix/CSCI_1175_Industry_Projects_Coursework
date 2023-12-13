@@ -1,6 +1,5 @@
 // Exercise31_01Client.java: The client sends the input to the server and receives
 // result back from the server
-package com.journaldev.socket;
 import java.io.IOException;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -18,7 +17,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
+import javafx.stage.Stage;import java.util.function.*;
+
 
 public class Exercise33_01Client extends Application {
   // Text field for receiving radius
@@ -67,7 +67,8 @@ public class Exercise33_01Client extends Application {
     
     //button to make the info go up to the server
     btSubmit.setOnAction(e -> {
-      
+      double tempD = tfAnnualInterestRate.getText();
+      //out.writeDouble();
     });
   }
   
