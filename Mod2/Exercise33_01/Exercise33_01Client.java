@@ -67,8 +67,16 @@ public class Exercise33_01Client extends Application {
     
     //button to make the info go up to the server
     btSubmit.setOnAction(e -> {
-      double tempD = tfAnnualInterestRate.getText();
-      //out.writeDouble();
+      String temp = tfAnnualInterestRate.getText();
+      Double numb = Double.parseDouble(temp);
+      out.writeDouble(numb);
+      String temp2 = tfNumOfYears.getText();
+      Integer numb2 = Integer.parseInt(temp2);
+      out.writeInt(numb2);
+      String temp3 = tfLoanAmount.getText();
+      Double numb3 = Double.parseDouble(temp3);
+      out.writeDouble(numb3);
+      
     });
   }
   
