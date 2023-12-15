@@ -32,9 +32,6 @@ public class Exercise33_01Client extends Application {
   
   @Override // Override the start method in the Application class
   public void start(Stage primaryStage) throws IOException {
-    Socket socket = new Socket("localhost", 9876);
-    DataInputStream in = new DataInputStream(socket.getInputStream());
-    DataOutputStream out = new DataOutputStream(socket.getOutputStream());
     
     ta.setWrapText(true);
    
@@ -65,18 +62,32 @@ public class Exercise33_01Client extends Application {
     primaryStage.setScene(scene); // Place the scene in the stage
     primaryStage.show(); // Display the stage
     
-    //button to make the info go up to the server
-    btSubmit.setOnAction(e -> {
-      String temp = tfAnnualInterestRate.getText();
-      Double numb = Double.parseDouble(temp);
-      out.writeDouble(numb);
-      String temp2 = tfNumOfYears.getText();
-      Integer numb2 = Integer.parseInt(temp2);
-      out.writeInt(numb2);
-      String temp3 = tfLoanAmount.getText();
-      Double numb3 = Double.parseDouble(temp3);
-      out.writeDouble(numb3);
-      
+    new Thread(() -> {
+      try {
+        Socket socket = new Socket("localhost", 9876);
+        DataInputStream in = new DataInputStream(socket.getInputStream());
+        DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+        //button to make the info go up to the server
+        btSubmit.setOnAction(e -> {
+          try {
+            String temp = tfAnnualInterestRate.getText();
+            Double numb = Double.parseDouble(temp);
+            out.writeDouble(numb);
+            String temp2 = tfNumOfYears.getText();
+            Integer numb2 = Integer.parseInt(temp2);
+            out.writeInt(numb2);
+            String temp3 = tfLoanAmount.getText();
+            double numb3 = Double.parseDouble(temp3);
+            out.writeDouble(numb3);
+          }
+          catch (IOException en) {
+            System.out.println("Error in the button");
+          }
+        });
+      }
+      catch (IOException ex){
+        System.out.println("Error in the thread");
+      }
     });
   }
   
